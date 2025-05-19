@@ -7,7 +7,7 @@
 
 * Clone this repository
 ```
-git clone https://github.com/harshpx/deepfake-detection.git
+git clone https://github.com/student-Ashishjha/deepfake_detection.git
 cd deepfake-detection
 ```
 * Setup python virtual environment and install dependencies
@@ -47,41 +47,14 @@ The main model is a **10 Layer Deep CNN Architecture**, which is optimized for e
 * Input image size used is [224,224,3].
 * The training accuracy achieved was <99.9% and the validation accuracy too achieved was <99% (Extremely accurate).
 
-<img src="client/public/model_structure.png"/>
 
 
-## Performance Analysis
-
-* **Training Logs**
-<img src="client/public/logs.png"/>
-
-* **Evaluation Metrics: Accuracy, Precision, Recall**
-<img src="client/public/score1.png"/>
-<img src="client/public/score2.png"/>
-
-* **Confusion Matrix**
-    * True Positive: 602
-    * False Positive: 7
-    * False Negative: 5
-    * True Negative: 586
-    <br/>
-    <img src="client/public/confusion_matrix.png" style="height:300px; width:300px; display:block margin-bottom:100px;"/>
 
 
-* **ROC-AUC curve**
-<img src="client/public/ROC.png"/>
 
 
-## Post-Training Pipeline
-<img src="client/public/pipeline.png"/>
 
-## Application Architecture (Client-Server)
-<img src="client/public/application_architecture.png">
+   
 
 
-## Screenshots
-<img src="client/public/df1.png"/>
-<img src="client/public/df2.png"/>
-<img src="client/public/df3.png"/>
-<img src="client/public/df5.png"/>
-<img src="client/public/df4.png"/>
+
