@@ -14,7 +14,8 @@ import ResultPanel from './components/ResultPanel';
 import HistoryPanel from './components/HistoryPanel';
 import InfoPanel from './components/InfoPanel';
 import SettingsPanel from './components/SettingsPanel';
-
+import Footer from './components/Footer';
+import FAQPanel from './components/FAQPanel';
 const App = () => {
   const BASEURL = 'http://localhost:8000';
   
@@ -29,7 +30,13 @@ const App = () => {
   // UI state
   const [activeTab, setActiveTab] = useState('upload');
   const [showInfoPanel, setShowInfoPanel] = useState(false);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    // Load theme from localStorage or default to 'light'
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'light';
+    }
+    return 'light';
+  });
   const [history, setHistory] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
   
@@ -39,7 +46,11 @@ const App = () => {
 
   // Theme toggler
   useEffect(() => {
-    document.documentElement.className = theme;
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [theme]);
 
   const handleFileUpload = (e, type) => {
@@ -156,14 +167,14 @@ const App = () => {
               <HistoryPanel history={history} clearHistory={clearHistory} />
             )}
             
-            {activeTab === 'info' && <InfoPanel />}
+            {activeTab === 'faq' && <FAQPanel />}
           </div>
         </div>
       )}
       
       <ToastContainer position="bottom-right" theme={theme} />
+      <Footer />
     </div>
   );
 };
-
 export default App;
